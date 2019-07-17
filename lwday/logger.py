@@ -91,3 +91,32 @@ Active tasks: {','.join(has_active)}''' )
         self.tlog.loc[task, 'elapsed'] = etime + new_elapsed
         
         
+class Planner (object):
+    def __init__ (self ):
+        pass
+
+    def make_plan ( self ):
+        if len(self.plan) > 0:
+            print("You already have a plan for today! Overwrite? [y/(n)]")
+            ans = input ()
+            if 'n' in ans or ans=='':
+                return            
+        
+        print (f"Let's make a plan for {utils.now().date()}")
+        print ("List today's tasks (return to exit)")
+        self.plan = []
+        out = None
+        while True:
+            out = input ()
+            if out == '':
+                break
+            self.plan.append(out)
+
+
+    @property
+    def planner ( self ):
+        print(f"Tasks for {utils.now().date()}:")
+        print('-----')
+        for task in self.plan:
+            print ( task )
+        print('-----')
