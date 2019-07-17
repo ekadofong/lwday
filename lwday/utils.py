@@ -13,6 +13,9 @@ def now (as_string=False):
 def dt_to_string ( dt, fmt=_DEFAULT_DATETIME_FORMAT ):
     return dt.strftime ( fmt )
 
+def string_to_dt ( string, fmt=_DEFAULT_DATETIME_FORMAT ):
+    return datetime.datetime.strptime ( string, fmt )
+
 def get_timediff ( s1, s2, fmt=_DEFAULT_DATETIME_FORMAT ):    
     dt1 = datetime.datetime.strptime ( s1, fmt )
     dt2 = datetime.datetime.strptime ( s2, fmt )
